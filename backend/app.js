@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173","https://shop-easy-azure.vercel.app"
+    origin: ["http://localhost:5173","https://shop-easy-azure.vercel.app"],
     credentials: true,
   })
 );
