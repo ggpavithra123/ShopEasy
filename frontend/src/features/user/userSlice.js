@@ -7,7 +7,8 @@ export const register=createAsyncThunk('user/register',async (userData,{rejectWi
         const config={
             headers:{
                 'Content-Type':'multipart/form-data'
-            }
+            },
+             withCredentials: true, 
         }
     const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/register',userData,config)
     return data
@@ -34,7 +35,13 @@ export const login=createAsyncThunk('user/login',async ({email,password},{reject
 
 export const loadUser=createAsyncThunk('user/loadUser',async(_,{rejectWithValue})=>{
     try{
-        const {data}=await axios.get('https://shopeasy-3j4y.onrender.com/api/v1/profile');
+         const config={
+            headers:{
+                'Content-Type':'application/json'
+            },
+            withCredentials: true,   // ✅ added line
+        }
+        const {data}=await axios.get('https://shopeasy-3j4y.onrender.com/api/v1/profile',config);
         return data
     }catch(error){
         return rejectWithValue(error.response?.data || 'Failed to load user profile')
@@ -55,7 +62,8 @@ export const updateProfile=createAsyncThunk('user/updateProfile',async(userData,
         const config={
             headers:{
                 'Content-Type':'multipart/form-data'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.put('https://shopeasy-3j4y.onrender.com/api/v1/profile/update',userData,config);
         return data
@@ -69,7 +77,8 @@ export const updatePassword=createAsyncThunk('user/updatePassword',async(formDat
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.put('https://shopeasy-3j4y.onrender.com/api/v1/password/update',formData,config);
         return data
@@ -84,7 +93,8 @@ export const forgotPassword=createAsyncThunk('user/forgotPassword',async(email,{
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/password/forgot',email,config);
         return data
@@ -97,7 +107,8 @@ export const resetPassword=createAsyncThunk('user/resetPassword',async({token,us
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.post(`https://shopeasy-3j4y.onrender.com/api/v1/reset/${token}`,userData,config);
         return data
