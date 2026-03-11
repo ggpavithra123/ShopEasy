@@ -13,7 +13,7 @@ export const fetchAdminProducts = createAsyncThunk(
   "admin/fetchAdminProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/products");
+      const { data } = await axios.get("https://shopeasy-3j4y.onrender.com/api/v1/admin/products");
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -35,7 +35,7 @@ export const createProduct = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "/api/v1/admin/product/create",
+        "https://shopeasy-3j4y.onrender.com/api/v1/admin/product/create",
         productData,
         config
       );
@@ -61,7 +61,7 @@ export const updateProduct = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `/api/v1/admin/product/${id}`,
+        `https://shopeasy-3j4y.onrender.com/api/v1/admin/product/${id}`,
         formData,
         config
       );
@@ -82,7 +82,7 @@ export const deleteProduct = createAsyncThunk(
   "admin/deleteProduct",
   async (productId, { rejectWithValue }) => {
     try {
-      await axios.delete(`/api/v1/admin/product/${productId}`);
+      await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/product/${productId}`);
       return { productId };
     } catch (error) {
       return rejectWithValue(
@@ -99,7 +99,7 @@ export const fetchUsers = createAsyncThunk(
   "admin/fetchUsers",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/users");
+      const { data } = await axios.get("https://shopeasy-3j4y.onrender.com/api/v1/admin/users");
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -116,7 +116,7 @@ export const getSingleUser = createAsyncThunk(
   "admin/getSingleUser",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/admin/user/${id}`);
+      const { data } = await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${id}`);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -133,7 +133,7 @@ export const updateUserRole = createAsyncThunk(
   "admin/updateUserRole",
   async ({ userId, role }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.put(`/api/v1/admin/user/${userId}`, {
+      const { data } = await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${userId}`, {
         role,
       });
       return data;
@@ -152,7 +152,7 @@ export const deleteUser = createAsyncThunk(
   "admin/deleteUser",
   async (userId, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/user/${userId}`);
+      const { data } = await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${userId}`);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -169,7 +169,7 @@ export const fetchAllOrders = createAsyncThunk(
   "admin/fetchAllOrders",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/orders");
+      const { data } = await axios.get("https://shopeasy-3j4y.onrender.com/api/v1/admin/orders");
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -186,7 +186,7 @@ export const deleteOrder = createAsyncThunk(
   "admin/deleteOrder",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
+      const { data } = await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/order/${id}`);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -208,7 +208,7 @@ export const updateOrderStatus = createAsyncThunk(
       };
 
       const { data } = await axios.put(
-        `/api/v1/admin/order/${orderId}`,
+        `https://shopeasy-3j4y.onrender.com/api/v1/admin/order/${orderId}`,
         { status },
         config
       );
@@ -230,7 +230,7 @@ export const fetchProductReviews = createAsyncThunk(
   async (productId, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/admin/reviews?id=${productId}`
+        `https://shopeasy-3j4y.onrender.com/api/v1/admin/reviews?id=${productId}`
       );
       return data;
     } catch (error) {
@@ -249,7 +249,7 @@ export const deleteReview = createAsyncThunk(
   async ({ productId, reviewId }, { rejectWithValue }) => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/admin/reviews?productId=${productId}&id=${reviewId}`
+        `https://shopeasy-3j4y.onrender.com/api/v1/admin/reviews?productId=${productId}&id=${reviewId}`
       );
       return data;
     } catch (error) {
