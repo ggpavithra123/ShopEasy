@@ -3,7 +3,7 @@ import axios from 'axios';
 //Add items to cart
 export const addItemsToCart=createAsyncThunk('cart/addItemsToCart',async ({id,quantity},{rejectWithValue})=>{
     try{
-    const {data}=await axios.get(`/api/v1/product/${id}`);
+    const {data}=await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/product/${id}`);
     
     return {
         product:data.product._id,
