@@ -24,7 +24,7 @@ function Payment() {
 
       // 1️⃣ Get Razorpay Key
       const { data: keyData } = await axios.get(
-        "http://localhost:8000/api/v1/getKey",
+        "https://shopeasy-3j4y.onrender.com/api/v1/getKey",
         { withCredentials: true }
       );
 
@@ -33,7 +33,7 @@ function Payment() {
 
       // 2️⃣ Create Razorpay Order
       const { data: orderData } = await axios.post(
-        "http://localhost:8000/api/v1/payment/process",
+        "https://shopeasy-3j4y.onrender.com/api/v1/payment/process",
         { amount },
         { withCredentials: true }
       );
@@ -56,7 +56,7 @@ function Payment() {
 
             // 4️⃣ Verify Payment
             const { data } = await axios.post(
-              "http://localhost:8000/api/v1/paymentVerification",
+              "https://shopeasy-3j4y.onrender.com/api/v1/paymentVerification",
               {
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_order_id: response.razorpay_order_id,
