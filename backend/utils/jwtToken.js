@@ -1,4 +1,4 @@
-const sendToken = (user, statusCode, res) => {
+export const sendToken = (user, statusCode, res) => {
   const token = user.getJwtToken();
 
   const options = {
@@ -19,4 +19,4 @@ const sendToken = (user, statusCode, res) => {
      });
 };
 
-module.exports = sendToken;
+
