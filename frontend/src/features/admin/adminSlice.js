@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchAdminProducts=createAsyncThunk('admin/fetchAdminProducts',async(_,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.get('/api/v1/admin/products')
+        const {data}=await axios.get('https://shopeasy-3j4y.onrender.com/api/v1/admin/products')
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Error While Fetching the products")
@@ -21,7 +21,7 @@ export const createProduct=createAsyncThunk('admin/createProduct',async(productD
             }
         }
       
-        const {data}=await axios.post('/api/v1/admin/product/create',productData,config)
+        const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/admin/product/create',productData,config)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Product Creation Failed")
@@ -37,7 +37,7 @@ export const updateProduct=createAsyncThunk('admin/updateProduct',async({id,form
             }
         }
       
-        const {data}=await axios.put(`/api/v1/admin/product/${id}`,formData,config)
+        const {data}=await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/product/${id}`,formData,config)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Product Update Failed")
@@ -48,7 +48,7 @@ export const updateProduct=createAsyncThunk('admin/updateProduct',async({id,form
 export const deleteProduct=createAsyncThunk('admin/deleteProduct',async(productId,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.delete(`/api/v1/admin/product/${productId}`)
+        const {data}=await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/product/${productId}`)
         return {productId};
     }catch(error){
         return rejectWithValue(error.response?.data ||"Product Deletion Failed")
@@ -60,7 +60,7 @@ export const deleteProduct=createAsyncThunk('admin/deleteProduct',async(productI
 export const fetchUsers=createAsyncThunk('admin/fetchUsers',async(_,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.get(`/api/v1/admin/users`)
+        const {data}=await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/admin/users`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to fetch users")
@@ -71,7 +71,7 @@ export const fetchUsers=createAsyncThunk('admin/fetchUsers',async(_,{rejectWithV
 export const getSingleUser=createAsyncThunk('admin/getSingleUser',async(id,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.get(`/api/v1/admin/user/${id}`)
+        const {data}=await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${id}`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to fetch Single user")
@@ -82,7 +82,7 @@ export const getSingleUser=createAsyncThunk('admin/getSingleUser',async(id,{reje
 export const updateUserRole=createAsyncThunk('admin/updateUserRole',async({userId,role},{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.put(`/api/v1/admin/user/${userId}`,{role})
+        const {data}=await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${userId}`,{role})
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to update user role")
@@ -93,7 +93,7 @@ export const updateUserRole=createAsyncThunk('admin/updateUserRole',async({userI
 export const deleteUser=createAsyncThunk('admin/deleteUser',async(userId,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.delete(`/api/v1/admin/user/${userId}`)
+        const {data}=await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/user/${userId}`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Delete User")
@@ -104,7 +104,7 @@ export const deleteUser=createAsyncThunk('admin/deleteUser',async(userId,{reject
 export const fetchAllOrders=createAsyncThunk('admin/fetchAllOrders',async(_,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.get(`/api/v1/admin/orders`)
+        const {data}=await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/admin/orders`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Fetch Orders")
@@ -115,7 +115,7 @@ export const fetchAllOrders=createAsyncThunk('admin/fetchAllOrders',async(_,{rej
 export const deleteOrder=createAsyncThunk('admin/deleteOrder',async(id,{rejectWithValue})=>{
     try{
       
-        const {data}=await axios.delete(`/api/v1/admin/order/${id}`)
+        const {data}=await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/order/${id}`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Delete Order")
@@ -130,7 +130,7 @@ export const updateOrderStatus=createAsyncThunk('admin/updateOrderStatus',async(
                 'content-Type':'application/json'
             }
         }
-        const {data}=await axios.put(`/api/v1/admin/order/${orderId}`,{status},config)
+        const {data}=await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/order/${orderId}`,{status},config)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Update Order status")
@@ -141,7 +141,7 @@ export const updateOrderStatus=createAsyncThunk('admin/updateOrderStatus',async(
 export const fetchProductReviews=createAsyncThunk('admin/fetchProductReviews',async(productId,{rejectWithValue})=>{
     try{
        
-        const {data}=await axios.get(`/api/v1/admin/reviews?id=${productId}`)
+        const {data}=await axios.get(`https://shopeasy-3j4y.onrender.com/api/v1/admin/reviews?id=${productId}`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Fetch Product Reviews")
@@ -151,7 +151,7 @@ export const fetchProductReviews=createAsyncThunk('admin/fetchProductReviews',as
 export const deleteReview=createAsyncThunk('admin/deleteReview',async({productId,reviewId},{rejectWithValue})=>{
     try{
        
-        const {data}=await axios.delete(`/api/v1/admin/reviews?productId=${productId}&id=${reviewId}`)
+        const {data}=await axios.delete(`https://shopeasy-3j4y.onrender.com/api/v1/admin/reviews?productId=${productId}&id=${reviewId}`)
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data ||"Failed to Delete Product Review")
