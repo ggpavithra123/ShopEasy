@@ -8,7 +8,8 @@ export const createOrder= createAsyncThunk('order/createOrder',async(order,{reje
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/new/order',order,config)
         return data;
