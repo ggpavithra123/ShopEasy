@@ -3,7 +3,7 @@ export const sendToken=(user,statusCode,res)=>{
 
    const options = {
     expires: new Date(
-      Date.now() + process.env.COOKIE_EXPIRES_TIME * 24 * 60 * 60 * 1000
+      Date.now() + process.env.EXPIRE_COOKIE * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
     secure: true,        // 🔥 required for HTTPS (Render)
