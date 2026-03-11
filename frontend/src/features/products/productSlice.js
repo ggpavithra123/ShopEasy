@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getProduct=createAsyncThunk('product/getProduct',async({keyword,page=1,category},{rejectWithValue})=>{
     try{
-        let link='/api/v1/products?page='+page;
+        let link='https://shopeasy-3j4y.onrender.com/api/v1/products?page='+page;
         if(category){
             link+=`&category=${category}`;
         }
@@ -23,7 +23,7 @@ export const getProduct=createAsyncThunk('product/getProduct',async({keyword,pag
 // Product Details
 export const getProductDetails=createAsyncThunk('product/getProductDetails',async(id,{rejectWithValue})=>{
     try{
-        const link=`/api/v1/product/${id}`;
+        const link=`https://shopeasy-3j4y.onrender.com/api/v1/product/${id}`;
         const {data}=await axios.get(link);
         return data;
     }catch(error){
@@ -40,7 +40,7 @@ export const createReview=createAsyncThunk('product/createReview',async({rating,
             }
         }
         
-        const {data}=await axios.put('/api/v1/review',{rating,comment,productId},config);
+        const {data}=await axios.put('https://shopeasy-3j4y.onrender.com/api/v1/review',{rating,comment,productId},config);
         return data;
     }catch(error){
         return rejectWithValue(error.response?.data || 'An error occurred')
