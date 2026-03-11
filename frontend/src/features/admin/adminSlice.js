@@ -18,7 +18,8 @@ export const createProduct=createAsyncThunk('admin/createProduct',async(productD
         const config={
             headers:{
                 'Content-Type':'multipart/form-data'
-            }
+            },
+            withCredentials: true,   
         }
       
         const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/admin/product/create',productData,config)
@@ -34,7 +35,8 @@ export const updateProduct=createAsyncThunk('admin/updateProduct',async({id,form
         const config={
             headers:{
                 'Content-Type':'multipart/form-data'
-            }
+            },
+            withCredentials: true,   
         }
       
         const {data}=await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/product/${id}`,formData,config)
@@ -128,7 +130,8 @@ export const updateOrderStatus=createAsyncThunk('admin/updateOrderStatus',async(
         const config={
             headers:{
                 'content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         const {data}=await axios.put(`https://shopeasy-3j4y.onrender.com/api/v1/admin/order/${orderId}`,{status},config)
         return data;
