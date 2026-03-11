@@ -37,7 +37,8 @@ export const createReview=createAsyncThunk('product/createReview',async({rating,
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   
         }
         
         const {data}=await axios.put('https://shopeasy-3j4y.onrender.com/api/v1/review',{rating,comment,productId},config);
