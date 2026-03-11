@@ -21,7 +21,8 @@ export const login=createAsyncThunk('user/login',async ({email,password},{reject
         const config={
             headers:{
                 'Content-Type':'application/json'
-            }
+            },
+            withCredentials: true,   // ✅ added line
         }
     const {data}=await axios.post('https://shopeasy-3j4y.onrender.com/api/v1/login',{email,password},config)
     return data
